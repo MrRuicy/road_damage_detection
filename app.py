@@ -6,7 +6,7 @@ from PIL import Image
 import os
 
 # 加载 YOLOv11 模型
-model = YOLO("./runs/detect/DySample/weights/best.pt")
+model = YOLO("./best.pt")
 
 # 设置页面标题
 st.title("YOLOv11 道路病害检测")
