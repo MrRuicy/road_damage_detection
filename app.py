@@ -32,9 +32,9 @@ def load_model(model_path, device):
 model = load_model("./best.pt", device)
 
 # 页面设置
-st.title("道路病害检测系统")
+st.title("道路病害检测")
 st.sidebar.header("检测设置")
-confidence_threshold = st.sidebar.slider("置信度阈值", 0.0, 1.0, 0.5, 0.01)
+confidence_threshold = st.sidebar.slider("置信度阈值", 0.0, 1.0, 0.5, 0.05)
 
 # 初始化 session_state，避免重复处理
 if "processed_video_path" not in st.session_state:
@@ -179,11 +179,9 @@ st.markdown(
 ### 使用说明
 1. 上传道路图片或视频（支持JPG/PNG/MP4格式）。
 2. 调整侧边栏的置信度阈值（默认0.5）。
-3. 对于视频：
-   - 系统会优先使用GPU（如果可用）进行处理，并实时显示检测结果。
-   - 处理完成后会生成下载按钮，**不会重复处理**。
+3. 视频实时显示处理，完成后生成下载按钮。
 4. 查看检测结果并下载处理后的文件。
 
-**注意**：视频处理可能需要较长时间，请耐心等待进度条完成；实时显示模式下，视频帧处理速度受硬件和网络环境影响。
+**注意**：视频帧处理速度受硬件和网络环境影响。
 """
 )
